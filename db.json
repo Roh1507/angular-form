@@ -1,0 +1,69 @@
+{
+  "posts": [
+    {
+      "id": 6,
+      "firstName": "rahul",
+      "lastName": "lahori",
+      "email": "gamoraa@ggk.com",
+      "contact": 56595268929,
+      "salary": "8599"
+    },
+    {
+      "id": 7,
+      "firstName": "rohit.lohare78@gmail.com",
+      "lastName": "rohit.lohare78@gmail.com",
+      "email": "rohit.lohare78@gmail.com",
+      "contact": 9999999999,
+      "salary": "500"
+    },
+    {
+      "id": 8,
+      "firstName": "papata",
+      "lastName": "lahori",
+      "email": "rsrs@dg.com",
+      "contact": "8989989889",
+      "salary": "788889"
+    },
+    {
+      "id": 9,
+      "firstName": "hhhi",
+      "lastName": "john",
+      "email": "sisva@gmail.com",
+      "contact": "9999855285",
+      "salary": "55000"
+    }
+  ],
+  "signupUsers": [
+    {
+      "fullname": "Roh Loat",
+      "contact": 9999999999,
+      "email": "raoh@jggh.com",
+      "password": "99595dcdkcdkd",
+      "id": 1
+    },
+    {
+      "fullname": "Gabbar Sinh",
+      "contact": 98988989,
+      "email": "gabaar@kd.com",
+      "password": "cdsbdss",
+      "id": 2
+    },
+    {
+      "fullname": "dwwdwdcd",
+      "contact": "98989898998",
+      "email": "raoh@jggh.com",
+      "password": "ddkfkdfldkl",
+      "id": 9
+    },
+    {
+      "fullname": "Siva",
+      "contact": "9658985699",
+      "email": "siva@jj.com",
+      "password": "Rhshsgdss5",
+      "id": 10
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

@@ -1,0 +1,122 @@
+<nav class="navbar navbar-light" style="background-color: #80beeb;">
+  <div class="container-fluid">
+    <h1 style="color:rgb(15, 13, 29);">Angular CRUD</h1>
+    <div class="d-flex">
+      <button class="btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="clickAddEmployee()">Add
+        Employee</button>
+      <button type="button" routerLink="/login" class="btn btn-outline-dark mx-2">Logout</button>
+    </div>
+  </div>
+</nav>
+
+
+<table class="table mt-3">
+  <thead>
+    <tr>
+      <th scope="col">Employee Id</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Email ID</th>
+      <th scope="col">Contact No</th>
+      <th scope="col">Salary</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of employeeData">
+      <td>{{row.id}}</td>
+      <td>{{row.firstName}}</td>
+      <td>{{row.lastName}}</td>
+      <td>{{row.email}}</td>
+      <td>{{row.contact}}</td>
+      <td>{{row.salary}}</td>
+      <td>
+        <button class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal"
+          (click)="onEdit(row)">Edit</button>
+        <button (click)="deleteEmployeeDetails(row)" class="btn btn-danger mx-3">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Employee Details</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="formValue">
+          <!-- firstName -->
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
+            <span class="errors"
+              *ngIf="(formValue.controls['firstName'].dirty && formValue.controls['firstName'].errors?.['required'])">
+              *Enter first name
+            </span>
+            <span class="errors" *ngIf="formValue.controls['firstName'].errors?.['pattern']">*Enter Valid name</span>
+
+          </div>
+          <!-- lastName -->
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
+              <span class="errors"
+              *ngIf="(formValue.controls['lastName'].dirty && formValue.controls['lastName'].errors?.['required'])">
+              *Enter Last name
+            </span>
+            <span class="errors" *ngIf="formValue.controls['lastName'].errors?.['pattern']">*Enter Valid name</span>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email ID</label>
+            <input type="email" class="form-control" formControlName="email" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
+              <span class="errors"
+              *ngIf="(formValue.controls['email'].dirty && formValue.controls['email'].errors?.['required'])">
+              *Enter Email ID
+            </span>
+            <span class="errors" *ngIf="formValue.controls['email'].errors?.['email']">*Enter Valid Email</span>
+          </div>
+
+          <!-- Contact -->
+          <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Contact No:</label>
+            <input type="text" class="form-control" formControlName="contact" id="exampleInputPassword1">
+            <span class="errors"
+            *ngIf="(formValue.controls['contact'].dirty && formValue.controls['contact'].errors?.['required'])">
+            *Enter Contact No.
+          </span>
+          <span class="errors" *ngIf="formValue.controls['contact'].errors?.['pattern']">*Enter 10 digit Number</span>
+          </div>
+
+          <!-- Salary -->
+          <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Salary</label>
+            <input type="text" class="form-control" formControlName="salary" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
+              <span class="errors"
+              *ngIf="(formValue.controls['salary'].dirty && formValue.controls['salary'].errors?.['required'])">
+              *Enter salary
+            </span>
+            <span class="errors" *ngIf="formValue.controls['salary'].errors?.['pattern']">Enter correct salary details</span>
+          </div>
+
+        </form>
+
+        <div class="modal-footer">
+          <button type="button" id="cancel" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" *ngIf="showUpdate" (click)=" updateEmployeeDetails()"
+            class="btn btn-primary">Update</button>
+          <button type="button" *ngIf="showAdd" [disabled]="!formValue.valid" (click)=" postEmployeeDetails()" class="btn btn-primary">Add</button>
+        </div>
+      </div>
+    </div>
+  </div>

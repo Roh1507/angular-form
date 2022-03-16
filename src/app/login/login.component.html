@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>Login</h1>
+          <h6>Please Enter Email & Password</h6>
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" formControlName="email" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp" placeholder="Enter email">
+
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+              else.</small><br>
+            <span class="errors"
+              *ngIf="(loginForm.controls['email'].dirty && loginForm.controls['email'].errors?.['required']) ">*Please
+              enter Email</span>
+              
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1"
+              placeholder="Password">
+            <span class="errors"
+              *ngIf="(loginForm.controls['password'].dirty && loginForm.controls['password'].errors?.['required']) ">*Please
+              enter password</span>
+          </div>
+
+          <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary">Login</button>
+          <a class="mx-3" routerLink="/signup">SignUp</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

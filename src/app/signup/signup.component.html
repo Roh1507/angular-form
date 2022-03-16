@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row">
+    <div class="col md-6">
+      <div class="card">
+        <div class="text-center">
+          <h1>SignUp</h1>
+          <h6>Please Register your details</h6>
+        </div>
+        <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+          <div class="form-group">
+            <!-- Full name -->
+            <label for="exampleInputPassword1">Full Name</label>
+            <input type="text" formControlName="fullname" class="form-control" id="exampleInputPassword1">
+            <span class="errors"
+              *ngIf="(signupForm.controls['fullname'].dirty && signupForm.hasError('required','fullname'))">*Full name
+              required</span>
+           <span class="errors" *ngIf="signupForm.hasError('pattern','fullname')">*Must be in Alphabets</span>
+          </div>
+          <!-- Contact No -->
+          <div class="form-group">
+            <label for="exampleInputPassword1">Contact No</label>
+            <input type="text" formControlName="contact" class="form-control" id="exampleInputPassword1">
+            <span class="errors" *ngIf="(signupForm.controls['contact'].dirty && signupForm.hasError('required','contact'))">*Contact No required</span>
+            <span class="errors" *ngIf="signupForm.controls['contact'].errors?.['pattern']">Enter 10 digit Number</span>
+          </div>
+
+          <!-- Email Addr -->
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" formControlName="email" id="exampleInputEmail1"
+              aria-describedby="emailHelp">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small><br>
+            <span class="errors" *ngIf="(signupForm.controls['email'].dirty && signupForm.hasError('required','email'))">*Email required</span>
+            <span class="errors" *ngIf="signupForm.controls['email'].errors?.['email']" >*Enter valid email</span>
+          </div>
+
+          <!-- Password -->
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" formControlName="password" class="form-control" id="exampleInputPassword1">
+            <span class="errors" *ngIf="(signupForm.controls['password'].dirty && signupForm.hasError('required','password'))">*Password required</span>
+            <span class="errors" *ngIf="signupForm.controls['password'].errors?.['minlength']">*Password should not be less than 5 characters</span>
+            <span class="errors" *ngIf="signupForm.controls['password'].errors?.['maxlength']">*Password should not be less than 11 characters</span>
+          </div>
+          <!-- Button -->
+          <button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary">SignUp</button>
+          <a class="mx-3" routerLink="/login">Login</a>
+        </form>
+
+      </div>
+    </div>
+  </div>
