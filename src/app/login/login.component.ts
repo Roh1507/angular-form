@@ -27,6 +27,7 @@ export class LoginComponent implements OnInit {
           return a.email == this.loginForm.value.email && a.password == this.loginForm.value.password;
         });
         if (user) {
+           localStorage.setItem('token',`email:${this.loginForm.value.email}`)
           alert('Login successful')
           this.loginForm.reset();
           this.router.navigate(['dashboard']);
