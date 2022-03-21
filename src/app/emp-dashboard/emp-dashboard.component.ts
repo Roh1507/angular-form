@@ -99,4 +99,7 @@ export class EmpDashboardComponent implements OnInit {
         this.getEmployeeDetails();
       })
   }
+clearStorage(){
+    localStorage.clear();
+  }
 }
