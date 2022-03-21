@@ -4,7 +4,7 @@
     <div class="d-flex">
       <button class="btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" (click)="clickAddEmployee()">Add
         Employee</button>
-      <button type="button" routerLink="/login" class="btn btn-outline-dark mx-2">Logout</button>
+      <button type="button" routerLink="/login" (click)="clearStorage()" class="btn btn-outline-dark mx-2">Logout</button>
     </div>
   </div>
 </nav>
